@@ -4,8 +4,10 @@ import bodyParser from "body-parser";
 import chalk from "chalk";
 import exphbs from "express-handlebars";
 import maintainRoutes from "./routes/maintainRoutes.js";
-import { join, dirname } from 'path'
+import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import mongoose from "mongoose";
+
 dotenv.config();
 
 const app = express();
@@ -13,6 +15,10 @@ const log = console.log;
 const PORT = process.env.PORT || 8080;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+mongoose.connect(process.env.MONGO_URL).then(() => {
+  log(chalk.green("Connected to MongoDB"));
+});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,7 +28,7 @@ app.engine(
   "hbs",
   exphbs.engine({
     extname: "hbs",
-      partialsDirs: join(__dirname, "views", "partials"),
+    partialsDirs: join(__dirname, "views", "partials"),
     defaultLayout: null,
   })
 );

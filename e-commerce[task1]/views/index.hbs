@@ -6,12 +6,48 @@
     <title>TrendBreeze</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/banner.css">
+    <script src="/js/banner.js" type="text/javascript"></script>
 </head>
 <body>
     {{> navbar}}
-    This is the demo page.
+    {{> banner}}
+    <section>
+        <h2>
+            Categories
+        </h2>
+        <div class="parent_card">
+        {{> card category="Men's Fashion" offer="Flat 50% Off" banner="/images/men_fashion.jpg"}}
+        {{> card category="Women's Fashion" offer="Flat 20% Off" banner="/images/women_fashion.jpg"}}
+        {{> card category="Kids Zone" offer="Starting from Rs. 500" banner="/images/kids_fashion.jpg"}}
+        {{> card category="Electronics" offer="Discount upto 20%" banner="/images/electronics.jpg"}}
+        </div>
+    </section>
+    <section>
+        <h2>
+            Trending
+        </h2>
+        <div class="parent_card">
+                    {{> card category="Men's Fashion" offer="Flat 50% Off" banner="/images/men_fashion.jpg"}}
+                    {{> card category="Women's Fashion" offer="Flat 20% Off" banner="/images/women_fashion.jpg"}}
+                    {{> card category="Kids Zone" offer="Starting from Rs. 500" banner="/images/kids_fashion.jpg"}}
+                    {{> card category="Electronics" offer="Discount upto 20%" banner="/images/electronics.jpg"}}
+        </div>
+    </section>
+    <section>
+        <h2>
+            Deal of the Day
+        </h2>
+        <div class="parent_card">
+            {{> card category="Men's Fashion" offer="Flat 50% Off" banner="/images/men_fashion.jpg"}}
+            {{> card category="Women's Fashion" offer="Flat 20% Off" banner="/images/women_fashion.jpg"}}
+            {{> card category="Kids Zone" offer="Starting from Rs. 500" banner="/images/kids_fashion.jpg"}}
+            {{> card category="Electronics" offer="Discount upto 20%" banner="/images/electronics.jpg"}}
+        </div>
+    </section>
+    {{> footer}}
 </body>
 </html>
