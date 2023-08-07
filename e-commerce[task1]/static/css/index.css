@@ -85,3 +85,123 @@ footer {
   height: 50px;
   margin: 10px;
 }
+
+.login {
+  position: fixed;
+  display: none;
+  width: 40%;
+  height: 80%;
+  background-color: #fff;
+  top: 10%;
+  left: 30%;
+  border-radius: 20px;
+  background-image: url("/images/background_login.jpg");
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  padding: 30px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+  background: #fff;
+}
+
+.login form label {
+  margin-right: 20px;
+  margin-left: 50px;
+}
+
+.login form input {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+
+.login form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4fe14f;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  margin: auto;
+  letter-spacing: 2px;
+}
+
+#close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.signup {
+  width: 60%;
+  display: flex;
+  margin: auto;
+  margin-top: -10px;
+  padding: 30px;
+}
+
+.left_panel {
+  width: 50%;
+}
+
+.left_panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.right_panel {
+  width: 50%;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.right_panel h4,
+h6 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.right_panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background: #fff;
+}
+.right_panel form label {
+  margin-right: 5px;
+  font-size: small;
+  color: rgb(165, 165, 165);
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.right_panel form input {
+  padding: 10px;
+  border-bottom: 3px solid #000000 !important;
+  border: none;
+}
+
+.right_panel form button {
+  width: 50%;
+  padding: 10px;
+  background-color: #4fe14f;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  margin: auto;
+  letter-spacing: 2px;
+  cursor: pointer;
+}

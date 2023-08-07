@@ -1,0 +1,28 @@
+<div class="login">
+    <div id="close">
+        &times;
+    </div>
+    <form method="POST" action="/login">
+        <h2 class="heading" style="text-align:center; padding:20px; background-color:#fff;">
+            Login to your account !
+        </h2>
+        <div>
+            <label  style="margin-right:50px;" >
+                Email :
+            </label>
+            <input type="email" name="email" id="email"placeholder="Enter your email" required>
+        </div>
+       <div>
+        <label>
+            Password : 
+        </label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+       </div><br><br>
+       <button type="submit">
+            Login
+       </button>
+        <p style="text-align:center; margin-top: 60px; ">
+            Don't have an account ? <a href="/signup">Sign Up</a>
+    </form>
+
+</div>

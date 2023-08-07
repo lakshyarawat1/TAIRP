@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendBreeze</title>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body style="background-color:rgb(0, 0, 0);">
+    <div class="signup">
+        <div class="left_panel">
+            <img src="/images/image_signup.jpg"  />
+        </div>
+        <div class="right_panel">
+            <h4 class="heading">TrendBreeze</h4>
+            <h6>Sign Up at TrendBreeze</h6>
+            <form method="POST" action="/auth/signup">
+                <label name="firstName" id="firstName">First Name : </label>
+                <input type="text" for="firstName" required />
+                <label name="lastName" id="lastName">Last Name : </label>
+                <input type="text" for="lastName" />
+                <label name="email" id="email">Email : </label>
+                <input type="email" for="email" required />
+                <label name="password" id="password">Password : </label>
+                <input type="password" for="password" required />
+                <label name="conf_password" id="conf_password">Confirm password :  </label>
+                <input type="text" for="conf_password" required />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
