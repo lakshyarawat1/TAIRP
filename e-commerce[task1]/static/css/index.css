@@ -205,3 +205,7 @@ h6 {
   letter-spacing: 2px;
   cursor: pointer;
 }
+#response {
+  color: red;
+  text-align: center;
+}

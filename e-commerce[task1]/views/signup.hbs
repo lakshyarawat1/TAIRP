@@ -15,19 +15,54 @@
             <h4 class="heading">TrendBreeze</h4>
             <h6>Sign Up at TrendBreeze</h6>
             <form method="POST" action="/auth/signup">
-                <label name="firstName" id="firstName">First Name : </label>
-                <input type="text" for="firstName" required />
-                <label name="lastName" id="lastName">Last Name : </label>
-                <input type="text" for="lastName" />
-                <label name="email" id="email">Email : </label>
-                <input type="email" for="email" required />
-                <label name="password" id="password">Password : </label>
-                <input type="password" for="password" required />
-                <label name="conf_password" id="conf_password">Confirm password :  </label>
-                <input type="text" for="conf_password" required />
+                <label for="firstName">First Name : </label>
+                <input type="text" id="firstName" name="firstName" required />
+                <label for="lastName">Last Name : </label>
+                <input type="text" id="lastName" name="lastName" />
+                <label for="email">Email : </label>
+                <input type="email" id="email" name="email" required />
+                <label for="password">Password : </label>
+                <input type="password" id="password" name="password" required />
+                <label for="conf_password">Confirm password :  </label>
+                <input type="password" id="conf_password" name="conf_password" required />
                 <button type="submit">Sign Up</button>
             </form>
+            <div id="response"></div>
         </div>
     </div>
+
+    <script>
+        document.querySelector('.signup form').addEventListener('submit', async function(event){
+            event.preventDefault();
+
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const conf_password = document.getElementById('conf_password').value;
+
+            const formData = {
+                firstName,
+                lastName,
+                email,
+                password,
+                conf_password
+            }
+            const response = await fetch('/auth/signup', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers : {
+                    "Content-Type": "application/json"
+                }
+            }); 
+            const responseData = await response.json();
+            document.getElementById('response').textContent = responseData.message; 
+            event.target.reset();
+
+            if(responseData.message === 'User created successfully'){
+                window.location.href = '/';
+            }
+        });
+    </script>
 </body>
 </html>
