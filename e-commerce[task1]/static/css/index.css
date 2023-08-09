@@ -19,6 +19,7 @@ section h2 {
   margin: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
+  height: 10%;
 }
 
 .card:hover {
@@ -208,4 +209,42 @@ h6 {
 #response {
   color: red;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 40%;
+    margin: 5px;
+  }
+  .image_caption {
+    font-size: 10px;
+  }
+  .sub_caption {
+    font-size: 8px;
+  }
+  .footer_content_right img {
+    width: 20%;
+    height: 20%;
+  }
+  .footer_content {
+    display: block;
+  }
+  .footer_content_left {
+    font-size: 10px;
+  }
+  .login {
+    width: 80%;
+    height: 50%;
+    top: 10;
+    left: 10%;
+  }
+  .login form label,
+  .login form input {
+    margin-left: 40px;
+  }
+  .left_panel {
+    display: none;
+  }
+  .right_panel {
+    width: 100%;
+  }
 }

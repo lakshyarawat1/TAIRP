@@ -52,6 +52,7 @@
 
 .name {
   display: none;
+  padding-right: 150px;
 }
 
 @media (max-width: 768px) {
