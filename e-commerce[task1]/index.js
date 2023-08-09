@@ -18,11 +18,14 @@ const PORT = process.env.PORT || 8080;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-mongoose.connect(process.env.MONGO_URL).then(() => {
-  log(chalk.green("Connected to MongoDB"));
-});
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    log(chalk.green("Connected to MongoDB"));
+  })
+  .catch((err) => log(chalk.red(err.message)));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("static"));
 
 app.engine(
