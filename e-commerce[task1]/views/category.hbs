@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/category.css">
+    <link rel="icon" href="/images/logo.jpg">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <title>TrendBreeze</title>
+</head>
+<body>
+    {{> navbar}}
+    
+    <h1>
+        {{category}}
+    </h1>
+    {{!-- <div class="filter">
+        Sort By :
+        <label>Price : </label>
+        <input type="radio" />
+        <label>Popularity : </label>
+        <input type="radio" /><label>Ratings : </label>
+        <input type="radio" />
+    </div> --}}
+    <section>
+     
+        {{#each products}}
+            <div class="product">
+                <a href="/product/{{this.id}}">
+                    <img src="{{this.image}}" alt="product image">
+                    <h3>{{this.name}}</h3>
+                    <p>Rs. {{this.price}}</p>
+                </a>
+            </div>
+        {{/each}}
+    </section>
+
+    {{> footer}}
+</body>
+</html>

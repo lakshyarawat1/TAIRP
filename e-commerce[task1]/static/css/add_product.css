@@ -1,0 +1,27 @@
+h1 {
+  margin: 20px;
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+  margin: auto;
+}
+
+input {
+  padding: 10px;
+  border-bottom: 2px solid #ccc !important;
+  border: none;
+  outline: none;
+}
+button {
+  width: 130px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  background-color: greenyellow;
+  cursor: pointer;
+}

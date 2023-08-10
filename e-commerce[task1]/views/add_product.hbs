@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/navbar.css"><link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/add_product.css">
+    <title>Document</title>
+</head>
+<body>
+    {{> navbar}}
+    <section>
+        <h1>
+            Add product
+        </h1>
+        <form method="POST" action="/api/add_product">
+            <label for="name">
+                Name :
+            </label>
+            <input type="text" id="name" name="name" placeholder="Name of the product" /><label for="description">
+                Description : 
+            </label>
+            <input type="text" id="description" name="description" placeholder="Description of the product" /><label for="price">
+                Price :
+            </label>
+            <input type="text" id="price" name="price" placeholder="Price of the product" /><label for="discounted_price">
+                Discounted Price :
+            </label>
+            <input type="text" id="discounted_price" name="discounted_price" placeholder="Discounted Price of the product" />
+            <label for="image">
+                Image :
+            </label>
+            <input type="file" id="image" name="image"  />
+            <label for="category">
+                Category :
+            </label>
+            <input type="text" id="category" name="category" placeholder="Category of the product" />
+            <button type="submit">
+                Add +
+            </button>
+        </form>
+        <div id="message"></div>
+    </section>
+    {{> footer}}
+
+    <script src="/js/add_product.js"></script>
+</body>
+</html>

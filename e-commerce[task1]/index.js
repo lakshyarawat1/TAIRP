@@ -9,14 +9,13 @@ import pageRoutes from "./routes/pageRoutes.js";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
-
 dotenv.config();
 
 const app = express();
 const log = console.log;
 const PORT = process.env.PORT || 8080;
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+export const __dirname = dirname(__filename);
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -39,7 +38,7 @@ app.engine(
 
 app.use("/", pageRoutes);
 app.use("/auth", authRoutes);
-app.use("/maintain", maintainRoutes);
+app.use("/api", maintainRoutes);
 app.set("view engine", "hbs");
 
 app.listen(PORT, () => {

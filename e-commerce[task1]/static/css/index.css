@@ -20,6 +20,8 @@ section h2 {
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   height: 10%;
+  text-decoration: none;
+  color: black;
 }
 
 .card:hover {
