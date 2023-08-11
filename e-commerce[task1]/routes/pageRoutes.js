@@ -30,9 +30,23 @@ router.get("/category/:category", (req, res) => {
 
 router.get("/product/:id", (req, res) => {
   const id = req.params.id;
-  res.render("product", {
-    id,
-  });
+  Product.findOne({ _id: id })
+    .lean()
+    .then((product) => {
+      const discount_percentage =
+        ((product.price - product.discounted_price) * 100) / product.price;
+      const discount = Math.round(discount_percentage);
+      res.render("product", {
+        id,
+        product,
+        discount,
+      });
+    })
+    .catch((err) => {
+      res
+        .status(502)
+        .json({ message: "Oops! Something went wrong !", error: err.message });
+    });
 });
 
 router.get("/add_product", (req, res) => {

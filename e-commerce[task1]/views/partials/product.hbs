@@ -1,8 +1,38 @@
 <section class="product">
     <div class="left_section">
-        Left
+        <img src="/images/{{product.image}}" />
+        <div class="button_panel">
+            <button class="cart">Add to Cart</button>
+            <button class="buy">Buy now</button>
+        </div>
     </div>
     <div class="right_section">
-        Right
+        <h2>
+            {{product.name}}
+        </h2>
+        <p class="product_info">
+            {{product.description}}
+        </p>
+        <p class="product_price">
+            Rs. {{product.price}}
+        </p>
+        <p class="discounted_price">
+            Rs. {{product.discounted_price}}
+        </p>
+        <p id="discount">
+            Discount of {{discount}}%
+        </p>
+        <h4>
+            Available offers 
+        </h4>
+        <ul>
+            <li>Bank Offer10% off on AU Bank Credit Card Txns, up to ₹1,500 on orders of ₹5,000 and above</li>
+            <li>Bank Offer10% off on Bank of Baroda Credit Card Txns, up to ₹1,500 on orders of ₹5,000 and above</li>
+            <li>Bank Offer10% off on Bank of Baroda Credit Card EMI Txns, up to ₹2,000 on orders of ₹5,000 and above</li>
+            <li>Extra ₹500 Off on Bikes & Scooters on purchase of ₹30,000 or more</li>
+        </ul>
+        <div>
+            <h2>Reviews</h2>
+        </div>
     </div>
 </section>

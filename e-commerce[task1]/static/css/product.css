@@ -14,3 +14,70 @@
   display: flex;
   width: 100%;
 }
+
+section img {
+  width: 80%;
+  height: 400px;
+  object-fit: cover;
+  margin: 2px 50px;
+  margin-top: 50px;
+}
+
+.product_info {
+  margin: 20px;
+}
+
+.button_panel {
+  display: flex;
+  gap: 10px;
+  margin-left: 50px;
+}
+
+button {
+  font-size: 15px;
+  width: 200px;
+  padding: 16px 30px;
+  color: white;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+  scale: 1.1;
+}
+
+.cart {
+  background: orange;
+}
+
+.buy {
+  background: rgb(97, 247, 97);
+}
+
+.discounted_price {
+  font-size: 30px;
+  font-weight: bold;
+}
+.product_price {
+  text-decoration: line-through;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+#discount {
+  color: rgb(76, 224, 76);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+h4 {
+  margin: 20px 0;
+}
+ul li {
+  list-style: none;
+  margin: 10px 0;
+}
