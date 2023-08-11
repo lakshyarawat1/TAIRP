@@ -1,4 +1,5 @@
 import express from "express";
+import Product from "../models/productModel.js";
 
 const router = express.Router();
 
@@ -12,36 +13,19 @@ router.get("/signup", (req, res) => {
 
 router.get("/category/:category", (req, res) => {
   const category = req.params.category;
-  const products = [
-    {
-      id: 1,
-      name: "product1",
-      price: 100,
-      image: "/images/men_fashion.jpg",
-    },
-    {
-      id: 2,
-      name: "product1",
-      price: 100,
-      image: "/images/men_fashion.jpg",
-    },
-    {
-      id: 3,
-      name: "product1",
-      price: 100,
-      image: "/images/men_fashion.jpg",
-    },
-    {
-      id: 4,
-      name: "product1",
-      price: 100,
-      image: "/images/men_fashion.jpg",
-    },
-  ];
-  res.render("category", {
-    category,
-    products,
-  });
+  Product.find({ category: category })
+    .lean()
+    .then((products) => {
+      res.render("category", {
+        category,
+        products,
+      });
+    })
+    .catch((err) => {
+      res
+        .status(502)
+        .json({ message: "Oops! Something went wrong !", error: err.message });
+    });
 });
 
 router.get("/product/:id", (req, res) => {

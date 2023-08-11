@@ -15,36 +15,26 @@ router.post("/add_product", (req, res) => {
 
   const imageFilePath = __dirname + "/static/images/" + image;
 
-  fs.readFile(imageFilePath, (err, data) => {
-    if (err) {
-      res.status(402).json({
-        message: "Error processing Image !, Please Try Again",
+  const product = {
+    name,
+    description,
+    price,
+    discounted_price,
+    image: imageFilePath,
+    category,
+  };
+  const newProduct = new Product(product);
+  newProduct
+    .save()
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      res.status(502).json({
+        message: "Your product could not be added to TrendBreeze !",
         error: err.message,
       });
-    } else {
-      const imageFile = data;
-      const product = {
-        name,
-        description,
-        price,
-        discounted_price,
-        image: imageFile,
-        category,
-      };
-      const newProduct = new Product(product);
-      newProduct
-        .save()
-        .then(() => {
-          res.redirect("/");
-        })
-        .catch((err) => {
-          res.status(502).json({
-            message: "Your product could not be added to TrendBreeze !",
-            error: err.message,
-          });
-        });
-    }
-  });
+    });
 });
 
 export default router;

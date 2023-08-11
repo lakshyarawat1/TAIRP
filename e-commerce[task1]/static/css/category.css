@@ -46,9 +46,24 @@ section {
   padding: 10px;
 }
 
-.product p {
-  text-decoration: none;
-  color: #4fe14f;
-  padding-left: 10px;
-  margin-bottom: 10px;
+#description {
+  font-size: 10px;
+  margin: 0 10px;
+  color: rgb(175, 175, 175);
+  letter-spacing: 2px;
+}
+
+#price {
+  font-size: 10px;
+  margin: 2px 10px;
+  color: rgb(255, 0, 0);
+  letter-spacing: 2px;
+  text-decoration: line-through;
+}
+
+#discounted_price {
+  font-size: 16px;
+  margin: 2px 10px;
+  color: rgb(0, 255, 0);
+  letter-spacing: 2px;
 }

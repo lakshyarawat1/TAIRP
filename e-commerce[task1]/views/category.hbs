@@ -24,15 +24,17 @@
         <input type="radio" />
     </div> --}}
     <section>
-     
-        {{#each products}}
-            <div class="product">
-                <a href="/product/{{this.id}}">
-                    <img src="{{this.image}}" alt="product image">
-                    <h3>{{this.name}}</h3>
-                    <p>Rs. {{this.price}}</p>
-                </a>
+        {{#each products }}
+        <div class="product">
+            <a href="/product/{{this._id}}">
+                <img src="/images/{{this.image}}" alt="product image">
+                <h3>{{this.name}}</h3>
+                <p id="description">{{this.description}}</p>
+                <p id="price">Rs. {{this.price}}</p>
+                <p id="discounted_price">Rs. {{this.discounted_price}}</p>
+            </a>
             </div>
+
         {{/each}}
     </section>
 
