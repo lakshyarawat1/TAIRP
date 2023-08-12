@@ -67,3 +67,9 @@ section {
   color: rgb(0, 255, 0);
   letter-spacing: 2px;
 }
+
+@media (max-width: 768px) {
+  .product {
+    width: 40%;
+  }
+}

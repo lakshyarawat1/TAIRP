@@ -81,3 +81,17 @@ ul li {
   list-style: none;
   margin: 10px 0;
 }
+
+@media (max-width: 768px) {
+  section {
+    display: flex;
+    flex-direction: column;
+  }
+  .left_section {
+    width: 90%;
+  }
+  .right_section {
+    width: 90%;
+    margin: 40px;
+  }
+}
