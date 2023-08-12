@@ -9,6 +9,9 @@ import pageRoutes from "./routes/pageRoutes.js";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
+import cookieParser from "cookie-parser";
+
 dotenv.config();
 
 const app = express();
@@ -23,9 +26,11 @@ mongoose
     log(chalk.green("Connected to MongoDB"));
   })
   .catch((err) => log(chalk.red(err.message)));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("static"));
+app.use(cookieParser());
 
 app.engine(
   "hbs",

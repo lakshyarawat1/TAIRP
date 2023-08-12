@@ -133,6 +133,7 @@ footer {
   border-radius: 2px;
   margin: auto;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 #close {

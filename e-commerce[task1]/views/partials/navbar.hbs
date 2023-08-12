@@ -17,12 +17,20 @@
         <input type="text" placeholder="Search products here " />
     </form>
     <a>
-        <p>40001</p>
+        <p id="user">{{user.user.firstName}}</p>
     </a>
+    {{#if user}}
+    <a href="/auth/logout">
+        <p class="logout">Logout</p>
+    </a>
+    {{else }}
     <a>
         {{!-- <p>Profile</p> --}}
         <img src="/images/profile.png" class="profile" />
     </a>
+    
+    {{/if}}
+  
     <a>
         <p>
             Cart

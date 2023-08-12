@@ -1,10 +1,16 @@
 import express from "express";
 import Product from "../models/productModel.js";
+import { authenticate } from "../utils/authenticate.js";
 
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.render("index");
+  const user = authenticate(req);
+  if (!user) {
+    res.render("index");
+  } else {
+    res.render("index", { user });
+  }
 });
 
 router.get("/signup", (req, res) => {
@@ -12,23 +18,34 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/category/:category", (req, res) => {
+  const user = authenticate(req);
   const category = req.params.category;
   Product.find({ category: category })
     .lean()
     .then((products) => {
-      res.render("category", {
-        category,
-        products,
-      });
+      if (!user) {
+        res.render("category", {
+          category,
+          products,
+        });
+      } else {
+        res.render("category", {
+          category,
+          products,
+          user,
+        });
+      }
     })
     .catch((err) => {
-      res
-        .status(502)
-        .json({ message: "Oops! Something went wrong !", error: err.message });
+      res.status(502).json({
+        message: "Oops! Something went wrong !",
+        error: err.message,
+      });
     });
 });
 
 router.get("/product/:id", (req, res) => {
+  const user = authenticate(req);
   const id = req.params.id;
   Product.findOne({ _id: id })
     .lean()
@@ -36,16 +53,24 @@ router.get("/product/:id", (req, res) => {
       const discount_percentage =
         ((product.price - product.discounted_price) * 100) / product.price;
       const discount = Math.round(discount_percentage);
-      res.render("product", {
-        id,
-        product,
-        discount,
-      });
+      if (!user) {
+        res.render("product", {
+          product,
+          discount,
+        });
+      } else {
+        res.render("product", {
+          product,
+          discount,
+          user,
+        });
+      }
     })
     .catch((err) => {
-      res
-        .status(502)
-        .json({ message: "Oops! Something went wrong !", error: err.message });
+      res.status(502).json({
+        message: "Oops! Something went wrong !",
+        error: err.message,
+      });
     });
 });
 

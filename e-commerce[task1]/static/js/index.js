@@ -11,3 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
     login.style.display = "none";
   });
 });
+
+document.getElementById("login").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  const formData = {
+    email,
+    password,
+  };
+  const response = await fetch("/auth/login", {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+});
