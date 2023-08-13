@@ -1,6 +1,7 @@
 import express from "express";
 import Product from "../models/productModel.js";
 import { authenticate } from "../utils/authenticate.js";
+import User from "../models/userModel.js";
 
 const router = express.Router();
 
@@ -72,6 +73,26 @@ router.get("/product/:id", (req, res) => {
         error: err.message,
       });
     });
+});
+
+router.get("/cart/:id", async (req, res) => {
+  const user = authenticate(req);
+  if (!user) {
+    res.redirect("/");
+  } else {
+    await User.findOne({ _id: req.params.id })
+      .populate("cart")
+      .lean()
+      .then((user) => {
+        res.render("cart", {user});
+      })
+      .catch((err) => {
+        res.status(502).json({
+          message: "Oops! Something went wrong !",
+          error: err.message,
+        });
+      });
+  }
 });
 
 router.get("/add_product", (req, res) => {

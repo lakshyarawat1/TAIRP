@@ -1,0 +1,32 @@
+#cart img {
+  width: 300px;
+  height: 300px;
+}
+
+#cart {
+  display: flex;
+  flex-direction: column;
+}
+
+#cart .product {
+  display: flex;
+  gap: 20px;
+}
+
+#cart .product .details {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+button {
+  background-color: rgb(195, 243, 100);
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+}

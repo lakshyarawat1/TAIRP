@@ -46,7 +46,7 @@ router.post("/add_to_cart", async (req, res) => {
           user.cart.push(product);
           await user.save();
 
-          res.status(200).json({message : "Success"})
+          res.status(200).json({ message: "Success" });
         })
         .catch((err) => {
           res.status(503).json({
@@ -60,6 +60,32 @@ router.post("/add_to_cart", async (req, res) => {
         message: "Oops! Something went wrong !",
         error: err.message,
       });
+    });
+});
+
+router.post("/delete_from_cart", async (req, res) => {
+  const { product_id, user_id } = req.body;
+
+  await User.findOne({ _id: user_id })
+    .then(async (user) => {
+      await Product.findOne({ _id: product_id })
+        .then(async (product) => {
+          user.cart.pull(product);
+          await user.save();
+
+          res.status(200).json({ message: "Success" });
+        })
+        .catch((err) => {
+          res.status(503).json({
+            message: "Oops! Something went wrong !",
+            error: err.message,
+          });
+        });
+    })
+    .catch((err) => {
+      res
+        .status(502)
+        .json({ message: "Oops! Something went wrong !", error: err.message });
     });
 });
 

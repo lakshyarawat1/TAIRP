@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  href="/css/navbar.css" rel="stylesheet">
+    <link  href="/css/index.css" rel="stylesheet">
+    <link  href="/css/cart.css" rel="stylesheet">
+    <title>TrendBreeze</title>
+</head>
+<body>
+    {{> navbar}}
+
+    <section id="cart">
+        <h2>
+            Cart
+        </h2>
+        <h3 style="margin-left : 20px;">
+            {{user.firstName}}
+        </h3>
+        {{#each user.cart}}
+        <div class="product">
+            <img src="/images/{{this.image}}" alt="">
+            <div class="details">
+                <h3>{{this.name}}</h3>
+                <p>{{this.description}}</p>
+                <p>Rs. {{this.price}}</p>
+                <p id="product_id" hidden>{{this._id}}</p>
+                <button>
+                    <a href="/buy/{{this.category}}/{{this._id}}">Buy Now</a>
+                </button>
+                <button id="delete" style="background-color: red;">
+                    Delete
+                </button>
+            </div>
+              
+            </div>
+          
+        </div>
+        {{/each}}
+    </section>
+
+    {{> footer}}
+
+    <script>
+        document.querySelector("#delete").addEventListener("click", async function(e){
+            e.preventDefault();
+
+            const product_id = document.querySelector("#product_id").textContent
+            const user_id = "{{user._id}}";
+            
+            const formData = {
+                product_id,
+                user_id
+            }
+            
+            const responseData = await fetch('/api/delete_from_cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            const response = await responseData.json();
+            
+            if (response.message == "Success"){
+                window.location.href = "/"
+            }
+        })
+    </script>
+</body>
+</html>
