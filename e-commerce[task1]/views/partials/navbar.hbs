@@ -23,17 +23,17 @@
     <a href="/auth/logout">
         <p class="logout">Logout</p>
     </a>
+    <a href="/cart/{{user.user._id}}">
+        <p>
+            Cart
+        </p>
+    </a>
     {{else }}
     <a>
-        {{!-- <p>Profile</p> --}}
         <img src="/images/profile.png" class="profile" />
     </a>
     
     {{/if}}
   
-    <a>
-        <p>
-            Cart
-        </p>
-    </a>
+   
 </nav>

@@ -2,6 +2,7 @@ import express from "express";
 import Product from "../models/productModel.js";
 import fs from "fs";
 import { __dirname } from "../index.js";
+import User from "../models/userModel.js";
 
 const router = express.Router();
 
@@ -13,14 +14,12 @@ router.post("/add_product", (req, res) => {
   const { name, description, price, discounted_price, image, category } =
     req.body;
 
-  const imageFilePath = __dirname + "/static/images/" + image;
-
   const product = {
     name,
     description,
     price,
     discounted_price,
-    image: imageFilePath,
+    image,
     category,
   };
   const newProduct = new Product(product);
@@ -32,6 +31,33 @@ router.post("/add_product", (req, res) => {
     .catch((err) => {
       res.status(502).json({
         message: "Your product could not be added to TrendBreeze !",
+        error: err.message,
+      });
+    });
+});
+
+router.post("/add_to_cart", async (req, res) => {
+  const { product_id, user_id } = req.body;
+
+  await User.findById(user_id)
+    .then(async (user) => {
+      await Product.findById(product_id)
+        .then(async (product) => {
+          user.cart.push(product);
+          await user.save();
+
+          res.status(200).json({message : "Success"})
+        })
+        .catch((err) => {
+          res.status(503).json({
+            message: "Oops! Something went wrong !",
+            error: err.message,
+          });
+        });
+    })
+    .catch((err) => {
+      res.status(502).json({
+        message: "Oops! Something went wrong !",
         error: err.message,
       });
     });

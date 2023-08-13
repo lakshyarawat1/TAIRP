@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import productModel from "./productModel.js";
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -22,6 +23,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Password is required"],
     trim: true,
+  },
+  cart: {
+    type: [productModel.Schema],
+    default: [],
   },
 });
 

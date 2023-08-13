@@ -3,7 +3,7 @@
         <img src="/images/{{product.image}}" />
         <div class="button_panel">
             <button class="cart">Add to Cart</button>
-            <button class="buy">Buy now</button>
+            <a href="/buy/{{product.category}}/{{product._id}}"><button class="buy">Buy now</button></a>
         </div>
     </div>
     <div class="right_section">
@@ -35,4 +35,25 @@
             <h2>Reviews</h2>
         </div>
     </div>
+
+    <script>
+        document.querySelector(".cart").addEventListener("click",async function(e){
+            e.preventDefault();
+
+            const response = await fetch("/api/add_to_cart", {
+                method : "POST",
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify({
+                    product_id : "{{product._id}}",
+                    user_id : "{{user.user._id}}"
+                })
+            })
+            const responseData = await response.json();
+            if (responseData.message == "Success"){
+                window.location.href = "/"
+            }
+        })
+    </script>
 </section>

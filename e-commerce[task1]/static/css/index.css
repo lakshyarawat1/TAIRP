@@ -251,3 +251,41 @@ h6 {
     width: 100%;
   }
 }
+#cart h5 {
+  margin: 30px;
+}
+
+#cart {
+  display: flex;
+}
+
+#cart img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin: 40px;
+}
+
+#cart form {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#cart form p {
+  letter-spacing: 2px;
+  color: #4fe14f;
+}
+
+#cart form button {
+  width: 40%;
+  margin: auto;
+  border: none;
+  border-radius: 20px;
+  background-color: #4fe14f;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 2px;
+}
