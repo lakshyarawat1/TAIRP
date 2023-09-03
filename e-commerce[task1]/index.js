@@ -1,6 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import bodyParser from "body-parser";
 import chalk from "chalk";
 import exphbs from "express-handlebars";
 import maintainRoutes from "./routes/maintainRoutes.js";
@@ -9,7 +8,6 @@ import pageRoutes from "./routes/pageRoutes.js";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
 
 dotenv.config();
